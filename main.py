@@ -1,12 +1,11 @@
 import streamlit as st
 import openai
 import os
-import secrets
 
 
 
 # Access the key
-openai.api_key = st.secrets["OPENAI_KEY"]
+openai.api_key = st.secrets["openai_key"]
 response = f"""Watch this space for the AI generated feedback. \n
 Click the Generate button on side bar. Be patient. Take 3 breaths.\n """
 prompt = "prompt"
