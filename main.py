@@ -40,12 +40,12 @@ Observation: ** {comments} **
 st.title("EduFeed\n **Fostering Student Learning with Personalised + AI-Powered Feedback**")
 # Sidebar Input Widgets
 with st.sidebar:
-    st.title("Feedback Writer Settings")
+    st.title("Inputs/Configurations")
+    comments = st.text_area("Write short personalised comments",  value="Volunteer answers \n Incomplete submission \nUse grammar checker \nWilling to challenge answers",  height=50, max_chars=1000)
     role = st.selectbox("Select Role", options=["polytechnic lecturer", "university professor", "childcare teacher"])
-    tone = st.selectbox("Choose the tone of the your feedback", options=["Encouraging", "Constructive", "Supportive", "Positive", "Neutral"])
+    tone = st.selectbox("Choose the tone of the feedback", options=["Encouraging", "Constructive", "Supportive", "Positive", "Neutral"])
     words_limit = st.selectbox("Choose the feedback word counts", options=[50, 80, 100, 160, 200], index=1)
-    comments = st.text_area("Write short personalised comments",  value="Volunteer answers \n Incomplete submission \nUse grammar checker \n",  height=50, max_chars=1000)
-
+  
     if st.button("Generate"):
         prompt = generate_prompt(role, tone, words_limit, comments)
         response = get_completion(prompt)
