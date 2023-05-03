@@ -7,7 +7,7 @@ import os
 # Access the key
 openai.api_key = st.secrets["openai_key"]
 response = f"""Watch this space for the AI generated feedback. \n
-Click the Generate button on side bar. Be patient. Take 3 breaths.\n """
+Click the WRITE button on side bar. Be patient. Take 3 breaths.\n """
 prompt = "prompt"
 # st.write(api_key)
 
@@ -46,7 +46,7 @@ with st.sidebar:
     tone = st.selectbox("Choose the tone", options=["Encouraging", "Constructive", "Supportive", "Positive", "Neutral"])
     words_limit = st.selectbox("State the feedback word counts", options=[50, 80, 100, 160, 200], index=1)
   
-    if st.button("Write"):
+    if st.button("WRITE"):
         prompt = generate_prompt(role, tone, words_limit, comments)
         response = get_completion(prompt)
         st.write('Prompt send to GPT3.5')
